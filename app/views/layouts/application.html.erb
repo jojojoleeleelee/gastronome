@@ -1,15 +1,239 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gassy</title>
+
+    <title>Gastronome</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <style>
+    <style>
+    a {
+      color: #2F87F1;
+    }
+    a:hover {
+      color: #2F87F1;
+      text-decoration: none;
+    }
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: grey;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: grey;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+      color: grey;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+      color: grey;
+    }
+    body {
+      padding: 0;
+      margin: 0;
+      background: #8DF2E1;
+      font-family: "Lato";
+      color: #080C3B;
+    }
+    input {
+      margin:0 auto;
+      margin-top: 5px;
+      padding: 15px;
+      color: grey;
+      width:70%;
+      height: 20%;
+      font-size: 1em;
+      text-align: center;
+      border-style: none;
+      background: transparent;
+      border-bottom: 1px solid rgba(150,150,150, .1);
+    }
+    input:hover {
+      margin:0 auto;
+      margin-top: 5px;
+      padding: 15px;
+      width:70%;
+      height: 20%;
+      text-align: center;
+      border-style: none;
+      border-bottom: 1px solid rgb(37, 42, 58);
+      background: transparent;
+    }
+    input:focus {
+      margin:0 auto;
+      margin-top: 5px;
+      padding: 15px;
+      font-family: 'Lato';
+      font-size: 1.25em;
+      outline-width: 0;
+      border-bottom: 1px solid rgb(37, 42, 58);
+      color:black;
+      background: rgba(255,255,255,.1);
+    }
+    .image-upload > input{
+      display: none;
+    }
+    .image-upload > label{
+      width: 5vw;
+      height: 5vw;
+      cursor:pointer;
+    }
+    input[type=submit] {
+      width: 70%;
+      height: 3.5vh;
+      padding-top:1.5%;
+      border-style: none;
+      background: #EAEAEA;
+      border-radius:30px;
+      text-align: center;
+      color: rgb(37, 42, 58);
+    }
+    input[type=submit]:hover {
+      width: 70%;
+      height: 3.5vh;
+      padding-top:1.5%;
+      border-style: none;
+      background: #2F87F1;
+      border-radius:30px;
+      color: white;
+    }
+    .login {
+      width: 70%;
+      height: 3.5vh;
+      padding-top:1.5%;
+      border-style: none;
+      background: #EAEAEA;
+      border-radius:30px;
+      margin: 0 auto;
+      text-align: center;
+      text-decoration: none;
+    }
+    .login a {
+      padding-top:2.5%;
+      margin: 0 auto;
+      text-align: center;
+      text-decoration: none;
+    }
+    .login:hover {
+      background: #FF2E63;
+      color: white;
+    }
+
+    #container {
+      margin: 0 auto;
+      width: 20vw;
+      text-align: center;
+      background: rgba(255,255,255,.1);
+      padding:30px 0px;
+    }
+    .vertical-center {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    #error_explanation {
+      color: grey;
+    }
+    #error_explanation li {
+      list-style: none;
+      color: grey;
+    }
+    .image-upload > input{
+      display: none;
+    }
+    .image-upload > label{
+      width: 5vw;
+      height: 5vw;
+      cursor:pointer;
+    }
+    input[type=submit] {
+      width: 70%;
+      height: 3.5vh;
+      padding-top:1.5%;
+      border-style: none;
+      background: #EAEAEA;
+      border-radius:30px;
+      text-align: center;
+      color: rgb(37, 42, 58);
+    }
+    input[type=submit]:hover {
+      width: 70%;
+      height: 3.5vh;
+      padding-top:1.5%;
+      border-style: none;
+      background: #2F87F1;
+      border-radius:30px;
+      color: white;
+    }
+    .login {
+      width: 70%;
+      height: 3.5vh;
+      padding-top:1.5%;
+      border-style: none;
+      background: #EAEAEA;
+      border-radius:30px;
+      margin: 0 auto;
+      text-align: center;
+      text-decoration: none;
+    }
+    .login a {
+      padding-top:2.5%;
+      margin: 0 auto;
+      text-align: center;
+      text-decoration: none;
+    }
+    .login:hover {
+      background: #FF2E63;
+      color: white;
+    }
+    .google {
+      background: #EAEAEA;
+      width: 70%;
+      height: 3.5vh;
+      padding-top:1.75%;
+      border-style: none;
+      border-radius:30px;
+      margin: 0 auto;
+      text-align: center;
+      text-decoration: none;
+    }
+    .google:hover {
+      background: #0391FC;
+      color: white;
+    }
+
+    .vertical-center {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    h1, h2, h3, body, p {
+      text-align: center;
+      color: #080C3B;
+    }
+    h1 {
+      font-size: 5em;
+    }
+    #notices {
+      text-align: center;
+      }
+    </style>
+
   </head>
 
   <body>
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

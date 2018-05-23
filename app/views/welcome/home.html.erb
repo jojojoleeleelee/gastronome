@@ -1,0 +1,64 @@
+<style>
+
+    #container-left:hover{
+      background-size: cover;
+      color: white;
+      font-size: 5vw;
+    }
+    #container-left{
+      width: 45vw;
+      height: 45vw;
+      text-align: center;
+      background-size: cover;
+      font-size: 4vw;
+      color: white;
+      margin-right: 1.66vw;
+      line-height: 45vw;
+      font-size:4vw;
+      color: black;
+      font-family: 'Helvetica', sans-serif;
+      font-weight: 900;
+      letter-spacing: -3px;
+    }
+    #container-right:hover {
+      background-size: cover;
+      color: white;
+      font-size: 5vw;
+    }
+    #container-right{
+      background-size: cover;
+      font-size: 4vw;
+      color: black;
+      line-height: 45vw;
+      margin-left: 1.66vw;
+      width: 45vw;
+      height: 45vw;
+      text-align: center;
+      font-family: 'Helvetica', sans-serif;
+      font-weight: 900;
+      letter-spacing: -3px;
+    }
+    .vertical-center {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      text-align: center;
+      align-items: center;
+    }
+
+</style>
+<h1>GASTRONOME</h1>
+<div class="vertical-center">
+    <a href= <%=new_user_session_path%>>
+      <div id="container-left">
+       SIGN UP
+      </div>
+    </a>
+    <a href= <%=new_user_path%>>
+      <div id="container-right">
+        LOG IN
+      </div>
+    </a>
+</div>
+    <br>

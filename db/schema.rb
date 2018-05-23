@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_23_020754) do
+ActiveRecord::Schema.define(version: 2018_05_23_181225) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_05_23_020754) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pantries", force: :cascade do |t|
+  create_table "recipe_ingredients", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
     t.datetime "created_at", null: false
@@ -37,14 +37,19 @@ ActiveRecord::Schema.define(version: 2018_05_23_020754) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
-    t.string "password_digest"
     t.integer "hungry"
     t.integer "energy"
     t.boolean "admin", default: false
     t.integer "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "password_digest", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
