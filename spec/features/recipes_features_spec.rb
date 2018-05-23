@@ -9,20 +9,19 @@ RSpec.feature "IngredientsFeatures", type: :feature do
       click_button "Create Ingredient"
     end
 
-    let(:ingredient) {
-      Ingredient.find_by(name: 'chocolate')}
-      it 'creates an ingredient' do
-        expect(ingredient).to_not be_nil
-      end
+  let(:ingredient) {
+    Ingredient.find_by(name: 'chocolate')}
+    it 'creates an ingredient' do
+      expect(ingredient).to_not be_nil
+    end
 
-      it 'redirects to the new ingredient show page' do
-        expect(current_path).to eq(ingredient_path(ingredient))
-      end
+    it 'redirects to the new ingredient show page' do
+      expect(current_path).to eq(ingredient_path(ingredient))
+    end
 
-      it 'displays the ingredient name' do
-        within 'h1' do
-          expect(page).to have_content(ingredient.name)
-        end
+    it 'displays the ingredient name' do
+      within 'h1' do
+        expect(page).to have_content(ingredient.name)
       end
     end
   end
