@@ -1,16 +1,24 @@
 <style>
 
 </style>
+
 <h2>CREATE RECIPE</h2>
 <br>
 
 <h3>PICK INGREDIENTS</h3>
-<%= form_for @rec do |f| %>
-<br> <p>
-  <%= f.collection_check_boxes :ingredient_ids, current_user.ingredients, :id, :name%>
+<%= form_for recipes_new_path, method: :post do |f| %>
+
+<%= f.collection_check_boxes(:ingredient_ids, current_user.ingredients, :name, :name) %>
 <br>
 <br> <h4>OR ADD NEW INGREDIENT:</h4>
-    <%= f.text_field :ingredient_name %>
+    <%= f.text_field :name %>
+    <%= f.submit "SAVE" %>
 </p>
-<%= f.submit "DONE" %>
-<% end %>
+</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <% end %>

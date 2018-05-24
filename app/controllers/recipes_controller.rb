@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :set_rec, only: [:show, :edit, :update, :destroy]
+  before_action :set_rec, only: [:edit, :update, :destroy]
+  @@keywords = []
 
   def index
   end
@@ -8,15 +9,36 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @rec = Recipe.new
     require_logged_in
   end
 
   def create
-    binding.pry
-    params[:recipe][:ingredient_name]
-    @rec = Recipe.new
 
+  end
+
+  def scrape
+    recipe = params[:"/recipes/new"]
+    if recipe[:ingredient].to_s.empty? && recipe[:name].empty?
+      flash.now[:notice] = "Go on, pick something!"
+      render :new
+      return
+    end
+
+    if !recipe[:name].empty?
+      @@keywords = []
+      @ing = Ingredient.create(name: recipe[:name])
+      current_user.ingredients << @ing
+      @@keywords << @ing
+      if !recipe[:ingredient].to_s.empty?
+        picked = recipe[:ingredient]
+        picked.reject!(&:empty?)
+        picked.each do |i|
+          @@keywords << i
+        end
+      end
+      binding.pry
+      redirect_to create_path
+    end
   end
 
   def edit
@@ -36,6 +58,6 @@ class RecipesController < ApplicationController
   end
 
   def rec_params
-    params.require(:recipe).permit(:name, :user_id, :time, :description, :rating)
+    params.require(:recipe).permit(:name, :user_id, :time, :description, :rating, :ing_attr)
   end
 end
