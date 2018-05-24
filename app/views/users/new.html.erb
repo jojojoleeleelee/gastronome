@@ -1,0 +1,17 @@
+<div class="vertical-center">
+    <div id="container">
+      <h2>SIGN UP</h2>
+      <br>
+    <%= form_for @user do |f| %>
+
+    <%= f.text_field :username, autofocus: true, placeholder: :username %>
+    <%= f.email_field :email, autofocus: true, placeholder: :email %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Retype Password" %>
+    <%= f.submit "SIGN UP" %>
+    <br>
+    <br>
+<%# ADD OMNIAUTH %>
+  <% end %>
+</div>
+</div>

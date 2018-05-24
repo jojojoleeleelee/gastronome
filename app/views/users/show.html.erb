@@ -46,18 +46,26 @@
       align-items: center;
     }
 </style>
-<h1>GASTRONOME</h1>
+<h1><%= current_user.username.upcase %></h1>
 
 <div class="vertical-center">
-    <a href= <%=new_user_path%>>
+    <a href= <%=ingredients_path%>>
       <div id="container-left">
-       SIGN UP
+       PANTRY
       </div>
     </a>
-    <a href= <%=login_path%>>
+    <a href= <%=recipes_path%>>
       <div id="container-right">
-        LOG IN
+        RECIPE
       </div>
     </a>
 </div>
     <br>
+    <h2><%= link_to "LOGOUT", logout_path, method: :post %></h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

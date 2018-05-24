@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_05_23_020754) do
     t.string "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_ingredients_on_user_id"
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
@@ -25,23 +26,26 @@ ActiveRecord::Schema.define(version: 2018_05_23_020754) do
     t.integer "ingredient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
     t.string "time"
+    t.string "pic_url"
     t.text "description"
+    t.float "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.integer "hungry"
-    t.integer "energy"
     t.boolean "admin", default: false
     t.integer "uid"
     t.datetime "created_at", null: false
