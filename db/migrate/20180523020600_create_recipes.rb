@@ -6,7 +6,6 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string :time
       t.string :pic_url
       t.text :description
-      t.float :rating
 
       t.timestamps
     end

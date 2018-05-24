@@ -8,9 +8,15 @@
    <sup><%= link_to "PANTRY", ingredients_path %></sup></h2>
 <br>
 <br>
+<div class="vertical-center">
+    <div id="container">
+ <p> <%= form_tag ingredient_path(@ingred.id), method: "delete" %> <%= submit_tag "DELETE" %> </p>
+</div>
+</div>
+
 <br>
 <br>
-<%# link_to "EDIT" and also "DELETE" %>
+
 <br>
 <br>
 <br>

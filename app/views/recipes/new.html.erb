@@ -6,10 +6,12 @@
 <br>
 
 <h3>PICK INGREDIENTS</h3>
-<%= form_for recipes_new_path, method: :post do |f| %>
+<%= form_for new_recipe_path, method: :post do |f| %>
+<div class="field">
+  <%= f.collection_check_boxes(:ingredient_ids, current_user.ingredients, :name, :name) %>
+  <br> 
+</div>
 
-<%= f.collection_check_boxes(:ingredient_ids, current_user.ingredients, :name, :name) %>
-<br>
 <br> <h4>OR ADD NEW INGREDIENT:</h4>
     <%= f.text_field :name %>
     <%= f.submit "SAVE" %>

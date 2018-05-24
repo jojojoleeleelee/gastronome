@@ -26,15 +26,9 @@ class IngredientsController < ApplicationController
     end
   end
 
-  def edit
-    require_logged_in
-  end
-
-  def update
-  end
-
   def destroy
-    # implement notice = "Are you sure?"
+    Ingredient.find(params[:id]).destroy
+    redirect_to ingredients_path
   end
 
   private
