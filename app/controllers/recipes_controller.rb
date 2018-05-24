@@ -8,11 +8,13 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @rec = Recipe.new
     require_logged_in
   end
 
   def create
     binding.pry
+    params[:recipe][:ingredient_name]
     @rec = Recipe.new
 
   end
