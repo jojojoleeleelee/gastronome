@@ -1,0 +1,24 @@
+<h1><em><%=  @ingred.name.upcase %></em></h1>
+
+<h2><%= @ingred.quantity %></h2>
+<h2>Date added: <%= @ingred.created_at.strftime('%m/%d/%Y') %></h2>
+<br>
+<br>
+ <h2><small>Back to</small>
+   <sup><%= link_to "PANTRY", ingredients_path %></sup></h2>
+<br>
+<br>
+<br>
+<br>
+<%# link_to "EDIT" and also "DELETE" %>
+<br>
+<br>
+<br>
+<h2><%= link_to "LOGOUT", logout_path, method: :post %></h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

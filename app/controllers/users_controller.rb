@@ -6,13 +6,13 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @user = User.new
   end
 
   def create
     user = params[:user]
     if user[:password] != user[:password_confirmation]
-      redirect_to new_user_path, notice:  "Your password confirmation doesn't match."
+      flash.now[:notice] = "Your password confirmation doesn't match."
+      render :new
       return
     end
 
@@ -21,7 +21,8 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
       session[:user_id] = @user.id
       redirect_to user_path(@user), notice: "Welcome to GASTRONOME, #{@user.username.upcase}!"
     else
-      redirect_to new_user_path, notice: "Try a different username or email."
+      flash.now[:notice] = "Try a different username or email."
+      render :new
     end
   end
 

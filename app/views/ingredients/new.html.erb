@@ -1,0 +1,15 @@
+<style>
+
+</style>
+<h2>ADD ITEM TO PANTRY</h2>
+<br>
+
+    <div id="vertical-center">
+      <div id="container">
+<%= form_for @ingred do |f| %>
+<%= f.text_field :name, placeholder: "name" %>
+<%= f.text_field :quantity, placeholder: "quantity" %>
+<%= f.submit "ADD" %>
+<% end %>
+</div>
+</div>
