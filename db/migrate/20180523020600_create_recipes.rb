@@ -6,6 +6,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.text :pic_url
       t.text :ingred
       t.text :description
+      t.boolean :cooked, default: false
 
       t.timestamps
     end

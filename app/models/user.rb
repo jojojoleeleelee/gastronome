@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :recipes
   has_secure_password
 
+
+  def ingred_by_due_date
+    ingredients.reverse
+  end
 end

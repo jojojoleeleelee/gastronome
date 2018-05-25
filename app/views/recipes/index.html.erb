@@ -5,13 +5,15 @@
 <img src= <%= r.pic_url %> >
   <div class="row">
     <div class="column">
-     <%= link_to "DELETE", recipes_path, class: 'btn btn-inside btn-boarder'  %>  <strong>
+      <%= form_tag recipe_path(r.id), method: "delete", class: 'btn btn-inside btn-boarder'  %>
+      <%= submit_tag "DELETE" %>   <strong>
+
        </div>
        <div class="column">
-       <%= link_to "READ", recipes_new_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
+       <%= link_to "READ", recipe_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
       </div>
        <div class="column">
-       <%= link_to "EDIT", recipes_new_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
+       <%= link_to "EDIT", edit_recipes_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
       </div>
     </div>
     <br>
@@ -19,7 +21,7 @@
     <% end %>
   <br>
   <br>
-&nbsp; | &nbsp;  <%= link_to "RECIPES", recipes_path %>  <strong>&nbsp; | &nbsp;  <%= link_to "HOME", root_path %> &nbsp; | &nbsp; </strong> <%= link_to "CREATE", recipes_new_path %>  &nbsp; | &nbsp;
+&nbsp; | &nbsp;  <%= link_to "RECIPES", all_recipes_path %>  <strong>&nbsp; | &nbsp;  <%= link_to "HOME", root_path %> &nbsp; | &nbsp; </strong> <%= link_to "CREATE", recipes_new_path %>  &nbsp; | &nbsp;
   <br>
   <br>
   <br>

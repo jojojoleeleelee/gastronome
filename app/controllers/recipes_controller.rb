@@ -8,6 +8,9 @@ class RecipesController < ApplicationController
   def show
   end
 
+  def mine
+  end
+
   def new
     require_logged_in
   end

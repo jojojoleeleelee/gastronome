@@ -22,10 +22,12 @@ ActiveRecord::Schema.define(version: 2018_05_24_185725) do
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
+    t.integer "recipe_id_id"
+    t.integer "ingredient_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ingredient_id_id"], name: "index_recipe_ingredients_on_ingredient_id_id"
+    t.index ["recipe_id_id"], name: "index_recipe_ingredients_on_recipe_id_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -34,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_185725) do
     t.text "pic_url"
     t.text "ingred"
     t.text "description"
+    t.boolean "cooked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"

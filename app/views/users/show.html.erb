@@ -5,14 +5,14 @@
       font-size: 5vw;
     }
     #container-left{
-      width: 45vw;
-      height: 45vw;
+      width: 40vw;
+      height: 30vw;
       text-align: center;
       background-size: cover;
       font-size: 4vw;
       color: white;
       margin-right: 1.66vw;
-      line-height: 45vw;
+      line-height: 15vw;
       font-size:4vw;
       color: black;
       font-family: 'Helvetica', sans-serif;
@@ -28,10 +28,10 @@
       background-size: cover;
       font-size: 4vw;
       color: black;
-      line-height: 45vw;
+      line-height: 15vw;
       margin-left: 1.66vw;
-      width: 45vw;
-      height: 45vw;
+      width: 40vw;
+      height: 30vw;
       text-align: center;
       font-family: 'Helvetica', sans-serif;
       font-weight: 900;
@@ -45,23 +45,28 @@
       text-align: center;
       align-items: center;
     }
+    h2 {
+      font-size: 5.3em;
+    }
 </style>
-<h1><%= current_user.username.upcase %></h1>
 
+<h1><%= link_to "#{current_user.username.upcase}", my_recipes_path %></h1>
+
+<%= link_to "RECIPES", all_recipes_path, class: 'recipe' %>
 <div class="vertical-center">
     <a href= <%=ingredients_path%>>
       <div id="container-left">
-       PANTRY
+       MY PANTRY
       </div>
     </a>
-    <a href= <%=recipes_path%>>
+    <a href= <%=my_recipes_path%>>
       <div id="container-right">
-        RECIPE
+        MY RECIPES
       </div>
     </a>
 </div>
     <br>
-    <h2><%= link_to "LOGOUT", logout_path, method: :post %></h2>
+    <h3><%= link_to "LOGOUT", logout_path, method: :post %></h3>
 <br>
 <br>
 <br>
