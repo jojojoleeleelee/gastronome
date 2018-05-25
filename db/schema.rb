@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_185725) do
     t.string "password_digest"
     t.boolean "admin", default: false
     t.integer "uid"
-    t.string "ingredients"
+    t.string "chosen_ingred"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

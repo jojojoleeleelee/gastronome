@@ -2,25 +2,32 @@
 
 </style>
 
+<% if current_user.ingredients.empty? %>
+<% flash[:notice] = "Looks like you're out of ingredients. Go and buy some groceries. Milk and eggs would be a good start. Or... if you're vegan, avocado and almonds!" %>
+<% redirect_to user_path(current_user) %>
+<% end %>
+
 <h2>CREATE RECIPE</h2>
 <br>
 
 <h3>PICK INGREDIENTS</h3>
-<%= form_for new_recipe_path, method: :post do |f| %>
+<%= form_for recipes_new_path, method: :post do |f| %>
 <div class="field">
-  <%= f.collection_check_boxes(:ingredient_ids, current_user.ingredients, :name, :name) %>
-  <br> 
+  <%= f.collection_check_boxes(:ingredient_ids, current_user.ingredients.uniq, :name, :name) %>
+  <br>
 </div>
 
-<br> <h4>OR ADD NEW INGREDIENT:</h4>
+<br> <h4>AND/OR ADD ANOTHER:</h4>
     <%= f.text_field :name %>
-    <%= f.submit "SAVE" %>
+    <%= f.submit "SUBMIT" %>
 </p>
 </p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
   <% end %>
+<br>
+  <%= link_to "BACK", root_path %>
+<br>
+<br>
+
+<br>
+<br>
+<br>

@@ -1,2 +1,44 @@
+
+<style>
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
 <h1>SHOWTIME!</h1>
-<%     binding.pry %>
+<%= form_for :recipe, url: showtime_path do |f| %>
+<div class="row">
+  <div class="column">
+
+
+  <% @pics.each do |p| %>
+  <img src="<%= p %>">
+    <br>
+    <% end %>
+    </div>
+    <div class="column">
+
+      <% @titles.each do |t| %>
+      <%= t %><br>
+      <% end %>
+      </div>
+        <div class="column">
+         <% @urls.each do |u| %>
+         <%= f.hidden_field :"#{u}" %>
+          <%= u %><br>
+            <%= f.submit "PICK THIS RECIPE" %>
+        </div>
+      <% end %>
+ <% end %>
+</div>
+<br>
+<br>
+<br>
+<br>
