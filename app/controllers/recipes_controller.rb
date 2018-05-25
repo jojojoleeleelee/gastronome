@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_rec, only: [:edit, :update, :destroy]
+  before_action :set_rec, only: [:edit,:update, :destroy]
 
 
   def index
@@ -77,6 +77,8 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    Recipe.find(params[:id]).destroy
+    redirect_to my_recipes_path
   end
 
   private

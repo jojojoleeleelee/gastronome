@@ -1,20 +1,27 @@
+<style>
+ hr {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 2px;
+ }
+</style>
 <h1>ALL RECIPES</h1>
-
 <% Recipe.all.each do |r| %>
+<hr>
 <h3><%= r.title.upcase %></h3>
 <img src= <%= r.pic_url %> >
-  <div class="row">
-    <div class="column">
-      <%= form_tag recipe_path(r.id), method: "delete", class: 'btn btn-inside btn-boarder'  %>
-      <%= submit_tag "DELETE" %>   <strong>
+<br>
+<br>
+  <div class='row'>
 
-       </div>
        <div class="column">
-       <%= link_to "READ", recipe_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
+       <%= link_to "READ", all_recipes_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
       </div>
-       <div class="column">
-       <%= link_to "EDIT", edit_recipes_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
-      </div>
+      
     </div>
     <br>
     <br>

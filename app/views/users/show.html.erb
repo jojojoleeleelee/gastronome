@@ -50,11 +50,11 @@
     }
 </style>
 
-<h1><%= link_to "#{current_user.username.upcase}", my_recipes_path %></h1>
+<h1><%= current_user.username.upcase %></h1>
 
-<%= link_to "RECIPES", all_recipes_path, class: 'recipe' %>
+<%= link_to "INDEX", all_recipes_path, class: 'recipe' %>
 <div class="vertical-center">
-    <a href= <%=ingredients_path%>>
+    <a href= <%=user_ingredients_path(current_user)%>>
       <div id="container-left">
        MY PANTRY
       </div>

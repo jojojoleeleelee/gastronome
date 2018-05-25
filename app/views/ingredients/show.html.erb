@@ -5,12 +5,12 @@
 <br>
 <br>
  <h2><small>Back to</small>
-   <sup><%= link_to "PANTRY", ingredients_path %></sup></h2>
+   <sup><%= link_to "PANTRY", user_ingredients_path %></sup></h2>
 <br>
 <br>
 <div class="vertical-center">
     <div id="container">
- <p> <%= form_tag ingredient_path(@ingred.id), method: "delete" %> <%= submit_tag "DELETE" %> </p>
+ <p> <%= link_to "DELETE", ingredient_path, method: "delete" %>  </p>
 </div>
 </div>
 

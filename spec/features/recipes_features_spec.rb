@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "IngredientsFeatures", type: :feature do
   describe "ingredient creation", type: :feature do
     before do
-      visit new_ingredient_path
+      visit new_user_ingredient_path_path
       fill_in "Name", with: "chocolate"
       fill_in "4 oz", from: 'quantity'
       click_button "Create Ingredient"

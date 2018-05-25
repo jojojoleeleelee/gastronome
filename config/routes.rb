@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   get 'recipes/index', to: 'recipes#index', as: '/all_recipes'
   get 'recipes/mine', to: 'recipes#mine', as: '/my_recipes'
   resources :recipes, only: [:show, :edit, :update, :destroy]
+  post 'users/:user_id/ingredients', to: 'ingredients#create'
 
-  resources :ingredients, only: [:index, :show, :new, :create]
-  resources :users, only: [:show, :new, :create, :destroy]
+  resources :ingredients
+
+  resources :users do
+    resources :ingredients, only: [:new, :index, :show, :edit, :update]
+  end
+
 end

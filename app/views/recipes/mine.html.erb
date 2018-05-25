@@ -6,18 +6,14 @@
 <% current_user.recipes.each do |r| %>
 <h3><%= r.title.upcase %></h3>
 <img src= <%= r.pic_url %> >
+<br><br><br>
   <div class="row">
     <div class="column">
-      <div class="vertical-center">
-          <div id="container">
-     <%= form_tag recipe_path(r.id), method: "delete", class: 'btn btn-inside btn-boarder'%>
-    <b><%= submit_tag "DELETE" , class: 'btn btn-inside btn-boarder'%></b>
-     <strong>
-       </div>
-       </div>
+     <%= link_to 'Delete', recipe_path(r), method: :delete, class: 'btn btn-inside btn-boarder' %>
+
        </div>
        <div class="column">
-       <%= link_to "READ", recipes_new_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
+       <%= link_to "READ", recipes_new_path, class: 'btn btn-inside btn-boarder'  %>
       </div>
        <div class="column">
        <%= link_to "EDIT", recipes_new_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
@@ -25,6 +21,7 @@
     </div>
     <br>
     <br>
+    <hr>
     <% end %>
   <br>
   <br>

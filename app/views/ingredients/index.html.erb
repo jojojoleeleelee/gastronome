@@ -45,15 +45,16 @@
       text-align: center;
       align-items: center;
     }
+
 </style>
 <h1>Your Pantry</h1>
 
   <h3> &nbsp; | &nbsp; <% current_user.ingredients.each do |i| %>
-    <%= link_to "#{i.name.upcase}", ingredient_path(i) %> &nbsp; | &nbsp;
+    <%= link_to "#{i.name.upcase}", user_ingredient_path(current_user, i) %> &nbsp; | &nbsp;
   <%  end%> </h3>
 
 <div class="vertical-center">
-    <a href= <%=new_ingredient_path%>>
+    <a href= <%=new_user_ingredient_path%>>
       <div id="container-left">
        ADD ITEM
       </div>
