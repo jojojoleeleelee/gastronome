@@ -1,43 +1,33 @@
 
 <style>
-.column {
-    float: left;
-    width: 33.33%;
-}
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
 </style>
-<h1>SHOWTIME!</h1>
-<%= form_for :recipe, url: showtime_path do |f| %>
-<div class="row">
-  <div class="column">
+<h1>PICK A RECIPE!</h1>
+<h2>Hungry? Let's make something!</h2>
 
 
-  <% @pics.each do |p| %>
-  <img src="<%= p %>">
-    <br>
-    <% end %>
-    </div>
-    <div class="column">
 
-      <% @titles.each do |t| %>
-      <%= t %><br>
-      <% end %>
+  <% @collection.each do |p| %>
+
+  <img src="<%= p[1] %>">
+   <h4><%= p[2] %></h4>
+  <%= form_for :recipe, url: showtime_path do |f| %>
+    <%= f.hidden_field :"#{p[0]}" %>
+    <div class="vertical-center">
+        <div id="container">
+    <%= f.submit "SELECT" %>
       </div>
-        <div class="column">
-         <% @urls.each do |u| %>
-         <%= f.hidden_field :"#{u}" %>
-          <%= u %><br>
-            <%= f.submit "PICK THIS RECIPE" %>
-        </div>
+      </div>
+      <br>
       <% end %>
- <% end %>
-</div>
+    <% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <%= link_to "BACK", root_path %>
 <br>
 <br>
 <br>

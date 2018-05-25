@@ -1,25 +1,66 @@
 <style>
 
-</style>
+   button {
+  display: inline-block;
+  position: relative;
+  padding: 20px 38px;
+  top: 0;
+  font-size: 30px;
+  font-family: "Open Sans", Helvetica;
+  border-radius: 4px;
+  border-bottom: 1px solid rgba( 28, 227, 125, 0.5 );
+  background: rgba( 22, 230, 137, 1 );
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
 
-<% if current_user.ingredients.empty? %>
-<% flash[:notice] = "Looks like you're out of ingredients. Go and buy some groceries. Milk and eggs would be a good start. Or... if you're vegan, avocado and almonds!" %>
-<% redirect_to user_path(current_user) %>
-<% end %>
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+          transform: translateZ(0);
+
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+button:hover {
+  top: -10px;
+  box-shadow: 0px 10px 10px rgba( 15, 165, 60, 0.2 );
+
+  -webkit-transform: rotateX(20deg);
+     -moz-transform: rotateX(20deg);
+      -ms-transform: rotateX(20deg);
+          transform: rotateX(20deg);
+}
+
+button:active {
+  top: 0px;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
+  background: rgba( 20, 224, 133, 1 );
+}
+
+</style>
 
 <h2>CREATE RECIPE</h2>
 <br>
 
-<h3>PICK INGREDIENTS</h3>
+<h3>PICK INGREDIENT</h3>
 <%= form_for recipes_new_path, method: :post do |f| %>
 <div class="field">
-  <%= f.collection_check_boxes(:ingredient_ids, current_user.ingredients.uniq, :name, :name) %>
+  <%= f.collection_select :ingredient_id, current_user.ingredients.uniq, :name, :name %>
   <br>
 </div>
 
+
 <br> <h4>AND/OR ADD ANOTHER:</h4>
     <%= f.text_field :name %>
-    <%= f.submit "SUBMIT" %>
+    <br>
+    <div id="vertical-center">
+      <div id="container">
+  <%= f.submit "SUBMIT", class: 'button' %>
+</div>
+</div>
 </p>
 </p>
   <% end %>

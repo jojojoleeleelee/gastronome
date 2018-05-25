@@ -47,6 +47,7 @@
     }
 </style>
 <h1>Your Pantry</h1>
+
   <h3> &nbsp; | &nbsp; <% current_user.ingredients.each do |i| %>
     <%= link_to "#{i.name.upcase}", ingredient_path(i) %> &nbsp; | &nbsp;
   <%  end%> </h3>

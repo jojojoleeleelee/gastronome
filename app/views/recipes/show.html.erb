@@ -1,0 +1,23 @@
+<style >
+
+</style>
+<h2><%= @recipe.title.upcase %></h2>
+<img src= <%= @recipe.pic_url %> >
+  <h3><em>Ingredients:</em> </h3>
+  <h4><%= @recipe.ingred %></h4>
+  <h3><em>Description:</em> </h3>
+  <h3 style="font-size:1.2em;"><%= @recipe.description %></h3>
+  <h4><em>Created on:</em> </h4>
+  <h4><%= @recipe.created_at.strftime('%m/%d/%Y') %></h4>
+  <br>
+  <br>
+  <br>
+&nbsp; | &nbsp;  <%= link_to "RECIPES", recipes_path %>  <strong>&nbsp; | &nbsp;  <%= link_to "CREATE", recipes_new_path %> &nbsp; | &nbsp; </strong> <%= link_to "HOME", root_path %> &nbsp; | &nbsp;
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>

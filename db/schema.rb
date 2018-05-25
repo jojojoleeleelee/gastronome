@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 2018_05_24_185725) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.integer "user_id"
-    t.string "time"
-    t.string "pic_url"
+    t.text "pic_url"
+    t.text "ingred"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -13,9 +13,14 @@ class RecipesController < ApplicationController
   end
 
   def create
-
-    binding.pry
-    redirect_to @recipe
+    chosen_recipe = RecipeScraper.new("https://www.food52.com#{params[:recipe].keys.join}")
+    @final_recipe = chosen_recipe.all_info
+    @recipe = current_user.recipes.build(@final_recipe)
+    if @recipe.save
+      render :show
+    else
+      redirect_to recipes_new_path, notice: "Oops! Let's try that again!"
+    end
   end
 
   def scrape
@@ -27,7 +32,6 @@ class RecipesController < ApplicationController
     end
 
     if !recipe[:name].empty?
-
       @ing = Ingredient.create(name: recipe[:name])
       current_user.ingredients << @ing
       current_user.chosen_ingred = @ing.name
@@ -40,15 +44,24 @@ class RecipesController < ApplicationController
       end
       ingred_array = current_user.chosen_ingred
       rec_scrape = RecipeScraper.new("https://www.food52.com/recipes/search?q=#{ingred_array.gsub(" ", "+")}")
-      @urls = rec_scrape.recipe_url
-      @pics = rec_scrape.pic
-      @titles = rec_scrape.title
-      if @urls.count < 5
+      urls = rec_scrape.recipe_url
+      pics = rec_scrape.pic
+      titles = rec_scrape.title
+      @collection = urls.zip(pics, titles).each {|b| b}
+      if @collection.count > 18
+        @collection.pop(16)
+      elsif @collection.count.between?(15, 18)
+        @collection.pop(10)
+      elsif @collection.count.between?(7, 15)
+        @collection.pop(4)
+      else
+        @collection
+      end
+      if urls.count < 5
         flash[:notice] = "Woah! I've never heard of that ingredient..."
-        Ingredient.find(Ingredient.count-1).destroy
-        # IT"S NOT DESTROYING THE INGREDIENT!
+        Ingredient.last.destroy
         redirect_to recipes_new_path
-        return
+      return
       end
     end
   end
