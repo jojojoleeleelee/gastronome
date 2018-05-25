@@ -1,6 +1,10 @@
+  <style>
+
+</style>
+
 <div class="vertical-center">
     <div id="container">
-      <h5>LOG IN</h5>
+      <h2>LOGIN</h2>
       <br>
       <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
       <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
@@ -11,13 +15,19 @@
 <br><br>
 <%= f.submit "LOG IN" %>
 <% end %>
+<br>
+<br>
+
+</div>
+</div>
+
 <a>
-  <%= link_to('LOGIN via GOOGLE', '/auth/google') %>
+  <div class="row">
+  <div class="column">
+  <%= link_to'LOGIN via GOOGLE', auth_google_callback_path(:google_oauth2), class: 'btn btn-inside btn-boarder' %>
   </a>
-
-<br><br>
-
-  <%= link_to "SIGN UP", new_user_path %><br />
-
+</div>
+<div class="column">
+  <%= link_to "SIGN UP", new_user_path, class: 'btn btn-inside btn-boarder' %><br />
 </div>
 </div>

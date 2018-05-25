@@ -1,20 +1,22 @@
 <h1>ALL RECIPES</h1>
 
-<% current_user.recipes.each do |r| %>
+<% Recipe.all.each do |r| %>
 <h3><%= r.title.upcase %></h3>
 <img src= <%= r.pic_url %> >
-  <h4><em>Ingredients:</em> <sub><%= r.ingred %></h4></sub>
-  <h3><em>Directions:</em> </h3>
-  <h3 style="font-size:1.2em;"><%= r.description %></h3>
-  <h4><em>Created on:</em>
-<%= r.created_at.strftime('%m/%d/%Y') %></h4>
-
-&nbsp; | &nbsp;  <%= link_to "EDIT", recipes_path %>  <strong>&nbsp; | &nbsp;  <%= link_to "DELETE", recipes_new_path %> &nbsp; | &nbsp; </strong>
-  <br>
-  <br>
-  <br>
-  <br>
-  <% end %>
+  <div class="row">
+    <div class="column">
+     <%= link_to "DELETE", recipes_path, class: 'btn btn-inside btn-boarder'  %>  <strong>
+       </div>
+       <div class="column">
+       <%= link_to "READ", recipes_new_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
+      </div>
+       <div class="column">
+       <%= link_to "EDIT", recipes_new_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
+      </div>
+    </div>
+    <br>
+    <br>
+    <% end %>
   <br>
   <br>
 &nbsp; | &nbsp;  <%= link_to "RECIPES", recipes_path %>  <strong>&nbsp; | &nbsp;  <%= link_to "HOME", root_path %> &nbsp; | &nbsp; </strong> <%= link_to "CREATE", recipes_new_path %>  &nbsp; | &nbsp;
