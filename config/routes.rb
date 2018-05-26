@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'home/show'
   root 'welcome#home'
 
-  get '/auth/google/callback' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#create'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   post 'logout', to: 'sessions#destroy'

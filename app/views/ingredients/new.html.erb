@@ -9,13 +9,21 @@
 <%= form_for @ingred, url: user_ingredients_path(current_user) do |f| %>
 <br>
 <br>
-<%= f.text_field :name, placeholder: "name" %>
+<%= f.text_field :name, placeholder: "NAME" %>
 <br>
 <br>
-<%= f.text_field :quantity, placeholder: "quantity" %>
+<%= f.text_field :quantity, placeholder: "QUANTITY" %>
 <br>
 <br>
-<%= f.submit "ADD" %>
+<%= f.submit "ADD", class: "btn btn-primary"  %>
 <% end %>
 </div>
 </div>
+<br>
+<br>
+<%= link_to "BACK", root_path %>
+<br>
+<br>
+<br>
+<br>
+<br>

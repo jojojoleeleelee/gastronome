@@ -13,10 +13,10 @@
 
        </div>
        <div class="column">
-       <%= link_to "READ", recipes_new_path, class: 'btn btn-inside btn-boarder'  %>
+       <%= link_to "READ", recipe_path(r), class: 'btn btn-inside btn-boarder'  %>
       </div>
        <div class="column">
-       <%= link_to "EDIT", recipes_new_path, class: 'btn btn-inside btn-boarder'  %>  </strong>
+       <%= link_to "EDIT", edit_recipe_path(r), class: 'btn btn-inside btn-boarder'  %>  
       </div>
     </div>
     <br>

@@ -4,12 +4,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    binding.pry
-    if request.env['omniauth.auth']
-      user = User.find_by(email: request.env['omniauth.auth']['info']['email'])
-      if !user
-        flash[:notice] = "Email does not match."
-        redirect_to sessions_create_path
+    if !!auth
+      @user = User.find_by(email: request.env['omniauth.auth']['info']['email'])
+      if @user.nil?
+        flash[:notice] = "Umm... we don't know you YET."
+        redirect_to new_user_path
       else
       session[:user_id] = @user.id
       redirect_to user_path(@user), notice: "Welcome back to Gastronome!"
@@ -20,6 +19,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user), notice: "Welcome back to Gastronome!"
       else
+        flash[:notice] = "Don't worry, signing up won't take long."
         redirect_to new_user_path
       end
     end
@@ -33,6 +33,6 @@ class SessionsController < ApplicationController
   private
 
   def auth
-    params[:format]
+    request.env['omniauth.auth']
   end
 end

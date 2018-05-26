@@ -1,14 +1,20 @@
 <style >
 
 </style>
+<% if @recipe.nil? %>
+<% @recipe = Recipe.find(params[:id]) %>
+<% end %>
+
 <h2><%= @recipe.title.upcase %></h2>
+<h3><sub> SAVED BY </sub><%= @recipe.user.username.upcase %></h3>
 <img src= <%= @recipe.pic_url %> >
   <h3><em>Ingredients:</em> </h3>
   <h4><%= @recipe.ingred %></h4>
   <h3><em>Description:</em> </h3>
   <h3 style="font-size:1.2em;"><%= @recipe.description %></h3>
-  <h4><em>Created on:</em> </h4>
-  <h4><%= @recipe.created_at.strftime('%m/%d/%Y') %></h4>
+  <h3>Cooked? <%= @recipe.cooked ? "YES!" : "NOT YET..." %></h3>
+  <h4><em>Created on:</em> <%= @recipe.created_at.strftime('%m/%d/%Y') %></h4>
+  <br>
   <br>
   <br>
   <br>
