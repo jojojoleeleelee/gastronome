@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    binding.pry
     if request.env['omniauth.auth']
       user = User.find_by(email: request.env['omniauth.auth']['info']['email'])
       if !user
@@ -32,6 +33,6 @@ class SessionsController < ApplicationController
   private
 
   def auth
-    request.env['omniauth.auth']
+    params[:format]
   end
 end

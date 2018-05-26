@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'home/show'
   root 'welcome#home'
 
   get '/auth/google/callback' => 'sessions#create'

@@ -6,5 +6,5 @@ Now, list of things I need to do -
 5. scope methods
 6. refractor and clean up code
 7. partials and forms?
-8. search button!!
+8. search button!!... maybe not. feeling rather exhausted grappling the complexity of all these nested routes. Ugh. Ingredients used to be so nice and simple... Now it's terribly complicated.
 ****9. nested routes. Oh dear.
