@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
 
   def show
   end
-
+  
   def mine
   end
 
@@ -43,10 +43,14 @@ class RecipesController < ApplicationController
       picked = recipe[:ingredient_id]
       picked.reject!(&:empty?)
       picked.each do |i|
-        current_user.chosen_ingred += " #{i}"
+        if !current_user.chosen_ingred.nil?
+          current_user.chosen_ingred += " #{i}"
+        else
+          current_user.chosen_ingred = "#{i}"
+        end
       end
       ingred_array = current_user.chosen_ingred
-      
+
       rec_scrape = RecipeScraper.new("https://www.food52.com/recipes/search?q=#{ingred_array.gsub(" ", "+")}")
       urls = rec_scrape.recipe_url
       pics = rec_scrape.pic

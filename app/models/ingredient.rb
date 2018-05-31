@@ -11,4 +11,8 @@ class Ingredient < ActiveRecord::Base
   def self.top_three_favs
     Ingredient.group(:name).order('count_id DESC').limit(3).count(:id)
   end
+
+  def find_recipe(search)
+    # Recipe.where(:title incluedes search)
+  end
 end
