@@ -1,6 +1,5 @@
 class Recipe < ActiveRecord::Base
-  has_many :recipe_ingredients
-  has_many :ingredients, through: :recipe_ingredients
+  belongs_to :recipe_ingredient
   belongs_to :user, optional: false
   validates_uniqueness_of :title
 

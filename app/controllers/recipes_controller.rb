@@ -6,8 +6,11 @@ class RecipesController < ApplicationController
 
   def show
   end
-  
+
   def mine
+  end
+
+  def cooked
   end
 
   def new
@@ -84,6 +87,13 @@ class RecipesController < ApplicationController
        params[:recipe][:cooked] = true
     else
        params[:recipe][:cooked] = false
+    end
+
+    @category = params[:recipe][:recipe_ingredients][:category]
+    if !@category.nil?
+      @final = RecipeIngredient.create(category: @category)
+      @final.recipe = @recipe
+      @recipe.recipe_ingredient = @final
     end
 
     if @recipe.update(rec_params)

@@ -34,12 +34,14 @@ ActiveRecord::Schema.define(version: 2018_05_24_185725) do
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
+    t.integer "recipe_ingredient_id"
     t.text "pic_url"
     t.text "ingred"
     t.text "description"
     t.boolean "cooked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["recipe_ingredient_id"], name: "index_recipes_on_recipe_ingredient_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

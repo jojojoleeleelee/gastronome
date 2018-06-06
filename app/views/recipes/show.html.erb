@@ -12,6 +12,9 @@
   <h4><%= @recipe.ingred %></h4>
   <h3><em>Description:</em> </h3>
   <h3 style="font-size:1.2em;"><%= @recipe.description %></h3>
+  <% if @recipe.recipe_ingredient %>
+  <h3>Category: <%= @recipe.recipe_ingredient.category %></h3>
+  <% end %>
   <h3>Cooked? <%= @recipe.cooked ? "YES!" : "NOT YET..." %></h3>
   <h4><em>Created on:</em> <%= @recipe.created_at.strftime('%m/%d/%Y') %></h4>
   <br>

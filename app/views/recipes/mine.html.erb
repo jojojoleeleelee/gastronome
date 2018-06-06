@@ -2,7 +2,7 @@
 
 </style>
 <h1>MY RECIPES</h1>
-
+<h2><%= link_to "COOKED RECIPES", recipes_cooked_path %></h2> 
 <% current_user.recipes.each do |r| %>
 <h3><%= r.title.upcase %></h3>
 <img src= <%= r.pic_url %> >
@@ -16,7 +16,7 @@
        <%= link_to "READ", recipe_path(r), class: 'btn btn-inside btn-boarder'  %>
       </div>
        <div class="column">
-       <%= link_to "EDIT", edit_recipe_path(r), class: 'btn btn-inside btn-boarder'  %>  
+       <%= link_to "EDIT", edit_recipe_path(r), class: 'btn btn-inside btn-boarder'  %>
       </div>
     </div>
     <br>

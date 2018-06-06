@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete 'ingredients/:id', to: 'ingredients#destroy'
 
   get 'recipes/new', to: 'recipes#new'
+  get 'recipes/cooked', to: 'recipes#cooked'
   post 'recipes/new', to: 'recipes#scrape'
   post 'recipes/scrape', to: 'recipes#create', as: '/showtime'
   get 'recipes/index', to: 'recipes#index', as: '/all_recipes'

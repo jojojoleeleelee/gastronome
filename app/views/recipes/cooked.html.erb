@@ -1,0 +1,9 @@
+<h2>COOKED RECIPES by <%= current_user.username.upcase %></h2>
+
+<h3><% current_user.recipes.cooked.each do |r| %>
+  <br>
+<%= link_to r.title,  recipe_path(r) %>
+<br>
+<br>
+<% end %>
+</h3>
