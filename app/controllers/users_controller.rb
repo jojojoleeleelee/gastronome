@@ -26,6 +26,9 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     end
   end
 
+  def info
+  end
+
   def destroy
   end
 

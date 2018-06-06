@@ -1,11 +1,11 @@
 <style>
-  
+
     h2 {
       font-size: 5.3em;
     }
 </style>
 
-<h1><%= current_user.username.upcase %></h1>
+<h1><%= link_to current_user.username.upcase, users_info_path %></h1>
 <%= link_to "INDEX", all_recipes_path, class: 'recipe' %>
 <br>
 <br>

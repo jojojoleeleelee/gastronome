@@ -14,5 +14,6 @@ class Ingredient < ActiveRecord::Base
 
   def find_recipe(search)
     # Recipe.where(:title incluedes search)
+    #http://guides.rubyonrails.org/active_record_querying.html#pure-string-conditions
   end
 end

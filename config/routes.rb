@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   post 'logout', to: 'sessions#destroy'
   post '/users/new', to: 'users#create'
+  get '/users/info', to: 'users#info'
 
   delete 'ingredients/:id', to: 'ingredients#destroy'
 
