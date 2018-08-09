@@ -56,7 +56,7 @@ class CommentsController < ApplicationController
   end
 
   def set_recipe
-    @recipe = Prayer.find(params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id])
   end
 
   def set_comment
