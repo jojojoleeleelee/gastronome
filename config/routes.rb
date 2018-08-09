@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   post 'recipes/scrape', to: 'recipes#create', as: '/showtime'
   get 'recipes/index', to: 'recipes#index', as: '/all_recipes'
   get 'recipes/mine', to: 'recipes#mine', as: '/my_recipes'
-  resources :recipes, only: [:show, :edit, :update, :destroy]
+  resources :recipes, only: [:show, :edit, :update, :destroy] do
+    resources :comments
+  end
   post 'users/:user_id/ingredients', to: 'ingredients#create'
 
   resources :ingredients

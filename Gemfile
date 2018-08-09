@@ -40,7 +40,7 @@ gem 'active_model_serializers'
 #Omniauth
 gem 'dotenv-rails'
 gem 'omniauth'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 gem 'thin'
 
 group :development, :test do
