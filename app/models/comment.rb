@@ -1,6 +1,6 @@
-class Comment < ApplicationRecord
+class Comment < ActiveRecord::Base
   validates :content, presence: true
-  
+
   belongs_to :recipe, class_name: "Recipe", foreign_key: "recipe_id"
 
   def time

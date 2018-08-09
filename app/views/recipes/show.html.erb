@@ -19,6 +19,17 @@
   <h4><em>Created on:</em> <%= @recipe.created_at.strftime('%m/%d/%Y') %></h4>
   <br>
   <br>
+  <div class="comments">
+    <%= render partial: 'comments/comment_form', locals: {recipe: @recipe, comment: @comment} %>
+  <br>
+
+  <p>
+    <% link_to "Load Comments", url: 'comments/comments' %>
+  </p>
+</div>
+  <br>
+  <br>
+  <br>
   <br>
   <br>
 &nbsp; | &nbsp;  <%= link_to "RECIPES", all_recipes_path %>  <strong>&nbsp; | &nbsp;  <%= link_to "CREATE", recipes_new_path %> &nbsp; | &nbsp; </strong> <%= link_to "HOME", root_path %> &nbsp; | &nbsp;

@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
   def index
     set_recipe
-    authorize @recipe, :show_comments?
     @comments = @recipe.all_comments
     respond_to do |format|
       format.html { render :index }
@@ -13,8 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     set_recipe
-    @comment = Comment.new(comment_params)
-    @comment.commenter = current_user
+    @comment = @recipe.comments.build(comment_params)
     if @comment.save
       flash[:notice] = "Successfully posted a comment"
     else
@@ -52,7 +50,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require("comment").permit(:recipe_id, :content)
+    params.require(:comment).permit(:content)
   end
 
   def set_recipe

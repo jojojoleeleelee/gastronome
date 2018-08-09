@@ -1,10 +1,12 @@
 class RecipesController < ApplicationController
-  before_action :set_rec, only: [:edit,:update, :destroy]
+  before_action :set_recipe, only: [:edit,:update, :destroy]
 
   def index
   end
 
   def show
+    set_recipe
+    @comment = Comment.new(recipe_id: @recipe)
   end
 
   def mine
@@ -79,7 +81,7 @@ class RecipesController < ApplicationController
 
   def edit
     require_logged_in
-    set_rec
+    set_recipe
   end
 
   def update
@@ -110,7 +112,7 @@ class RecipesController < ApplicationController
 
   private
 
-  def set_rec
+  def set_recipe
     @recipe = Recipe.find(params[:id])
   end
 
