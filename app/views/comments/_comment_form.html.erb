@@ -2,6 +2,6 @@
 <%= form_for [@recipe, @comment] do |f| %>
 <%= f.hidden_field :recipe_id %>
 <%= f.text_area :content, class: 'text', placeholder: 'Add a new comment!' %>
-<%= f.submit "Add!", class: "comment button" %>
+<%= f.submit "Add!", class: "btn" %>
 
 <% end %>

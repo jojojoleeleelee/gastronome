@@ -23,9 +23,9 @@
     <%= render partial: 'comments/comment_form', locals: {recipe: @recipe, comment: @comment} %>
   <br>
 
-  <p>
-    <% link_to "Load Comments", url: 'comments/comments' %>
-  </p>
+  <button id="show_comments" data-prayer-id="<%= @recipe.id %>" data-current-user="<%= current_user.username %>">Show Comments (<%= @recipe.comments.count %>)</button>
+<br><br>
+<div id="comments_index">
 </div>
   <br>
   <br>
