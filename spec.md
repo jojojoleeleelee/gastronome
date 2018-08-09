@@ -12,3 +12,9 @@ class level ActiveRecord scope method: model object, class method name and URL t
 
 OR perhaps I should do Ingredient.rating...
 or  Ingredient.comments
+
+Things to add:
+
+- AJAX comment on Recipe show page - hijack the post, append DOM
+- NO refresh. Dynamic posting
+- 
