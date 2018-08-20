@@ -78,48 +78,40 @@ class Comment {
 
 //Another Recipe without page refresh, using AMS
 
-
 $(function(){
-  addRecipeNavigationEvent()
-})
-
-function addRecipeNavigationEvent() {
-  $('button#another_recipe').click(function (e) {
-    console.log("Load Recipe ")
-    loadRecipe(this, false)
+  $("a.recipe-details").on("click", function(e){
+    $.getJSON(this.href, function(data) {
+      let recipeInfo = new Recipe(data.title, data.user_id, data.pic_url, data.ingred, data.description, data.cooked)
+      let formatted = recipeInfo.formatRecipe();
+      $('#recipe-info-' + data.id).html(formatted)
+    })
+    e.preventDefault();
   })
-}
 
-function loadRecipe(button){
-  let recipeId = 3;
-
-  let posting = $.get(`/recipes/${recipeId}.json`)
-  posting.done(function (recipe) {
-    let id = recipe["id"]
-    let title = recipe["title"]
-    let user_id = recipe["user_id"]
-    let pic_url = recipe["pic_url"]
-    let ingred = recipe["ingred"]
-    let description = recipe["description"]
-    let cooked = recipe["cooked"]
-
-
-    recipe = new Recipe(id, title, user_id, pic_url, ingred, description, cooked)
-    recipe.display()
-    addRecipeNavigationEvent()
-  })
-}
-
-
-class Recipe {
-
-  constructor(id, title, user_id, pic_url, ingred, description, cooked) {
-    this.id = id;
-    this.title = title;
-    this.user_id = user_id;
-    this.pic_url = pic_url;
-    this.ingred = ingred;
-    this.description = description;
-    this.cooked = cooked;
+  function Recipe(title, user_id, pic_url, ingred, description, cooked) {
+    this.title = title
+    this.user_id = user_id
+    this.pic_url = pic_url
+    this.ingred = ingred
+    this.description = description
+    this.cooked = cooked
   }
-}
+
+  Recipe.prototype.formatRecipe = function(){
+    let html = ''
+    html += `<p>I'm a ${this.title}</p>`
+    html += `<p>${this.user_id}</p>`
+    html += `<p>${this.pic_url}</p>`
+    html += `<p>${this.description}`
+    html += `${this.cooked}</p>
+    html += `<p>${this.ingred}</p>`
+    return html
+  }
+
+  $("a#new_recipe").on("click", function(e){
+    $.get(this.href).success(function(response){
+      $("div#addNew").html(response)
+    })
+    e.preventDefault();
+  })
+})
