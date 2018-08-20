@@ -5,6 +5,7 @@
 <% @recipe = Recipe.find(params[:id]) %>
 <% end %>
 
+<br>
 <h2><%= @recipe.title.upcase %></h2>
 <h3><sub> SAVED BY </sub><%= @recipe.user.username.upcase %></h3>
 <img src= <%= @recipe.pic_url %> >
@@ -28,6 +29,9 @@
 <div id="comments_index">
 </div>
   <br>
+  <br>
+  <br>
+  <button id="another_recipe" data-ingred-id="<%=@recipe.id%>" class="button is-text">Another Recipe</button>
   <br>
   <br>
   <br>

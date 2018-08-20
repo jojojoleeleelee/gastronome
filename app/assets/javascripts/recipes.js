@@ -8,7 +8,7 @@ $(function(){
     $.ajax({
       type: ($("input[name='_method']").val() || this.method),
       url: this.action,
-      data: $(this).serialize();, // either JSON or querystring serializing
+      data: $(this).serialize(),
       success: function(response){
         $("#comment_content").val("");
         var $ol = $("div.comments ol")
@@ -73,5 +73,53 @@ class Comment {
     comment += `</div></article><br>`
     $('div#comments_index').append(comment)
     $('button#show_comments')[0].innerHTML = "Hide Comments"
+  }
+}
+
+//Another Recipe without page refresh, using AMS
+
+
+$(function(){
+  addRecipeNavigationEvent()
+})
+
+function addRecipeNavigationEvent() {
+  $('button#another_recipe').click(function (e) {
+    console.log("Load Recipe ")
+    loadRecipe(this, false)
+  })
+}
+
+function loadRecipe(button){
+  let recipeId = 3;
+
+  let posting = $.get(`/recipes/${recipeId}.json`)
+  posting.done(function (recipe) {
+    let id = recipe["id"]
+    let title = recipe["title"]
+    let user_id = recipe["user_id"]
+    let pic_url = recipe["pic_url"]
+    let ingred = recipe["ingred"]
+    let description = recipe["description"]
+    let cooked = recipe["cooked"]
+
+
+    recipe = new Recipe(id, title, user_id, pic_url, ingred, description, cooked)
+    recipe.display()
+    addRecipeNavigationEvent()
+  })
+}
+
+
+class Recipe {
+
+  constructor(id, title, user_id, pic_url, ingred, description, cooked) {
+    this.id = id;
+    this.title = title;
+    this.user_id = user_id;
+    this.pic_url = pic_url;
+    this.ingred = ingred;
+    this.description = description;
+    this.cooked = cooked;
   }
 }
