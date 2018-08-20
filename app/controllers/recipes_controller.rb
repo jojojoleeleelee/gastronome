@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
 
   def show
     set_recipe
-    @comment = Comment.new(recipe_id: @recipe)
+    @comment = Comment.new(recipe: @recipe)
   end
 
   def mine
@@ -24,6 +24,7 @@ class RecipesController < ApplicationController
     @final_recipe = chosen_recipe.all_info
     @recipe = current_user.recipes.build(@final_recipe)
     if @recipe.save
+      @comment = Comment.new(recipe: @recipe)
       render :show
     else
       redirect_to recipes_new_path, notice: "Oops! Let's try that again!"
