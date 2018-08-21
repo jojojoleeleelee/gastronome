@@ -32,7 +32,7 @@ function showComments(button){
 }
 
 $('button#show_comments').on('click', function(e) {
-  console.log('help')
+
 })
 
 
