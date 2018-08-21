@@ -12,28 +12,16 @@ $(function(){
       }
     });
 
+    $('button#show_comments').on('click', function(e) {
+      console.log("hEYYY!")
+    })
+    
     e.preventDefault();
   })
 });
 // this is where the problem begins
 
-function showComments(button) {
-  let recipeId = parseInt(button.dataset.recipeId)
-  let posting = $.get(`/recipe/${recipeId}/comments.json`)
-  posting.done(function(response) {
-    response.forEach(function(comment) {
-      let id = comment['id']
-      let content = comment['content']
-      let recipe_id = comment['recipe_id']
-      comment = new Comment(id, recipeId, content, recipe_id)
-      comment.display()
-    })
-  })
-}
 
-$('button#show_comments').click(function(e) {
-  console.log("hEYYY!")
-})
 
 function hideComments() {
   let commentCount = $('article.message').length
