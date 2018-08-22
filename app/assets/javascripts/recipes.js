@@ -31,8 +31,8 @@ function showComments(button){
   })
 }
 
-$('button#show_comments').on('click', function(e) {
-
+$('button#show_comments').click(function(e) {
+  console.log("heys")
 })
 
 

@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
     set_recipe
     @comments = @recipe.all_comments
     respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @comments }
+      format.html { render :index, layout: false }
+      format.json { render json: @comments, layout: false }
     end
 
   end
@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.build(comment_params)
     if @comment.save
       flash[:notice] = "Successfully posted a comment"
+      render 'create.js', :layout => false
     else
       flash[:notice] = @comment.errors.full_messages.to_sentence
     end
@@ -31,11 +32,11 @@ class CommentsController < ApplicationController
     set_comment
 
     if @comment.update(comment_params)
-      flash[:notice] = "Successfully posted a recipe"
+      flash[:notice] = "Edits made"
       redirect_to recipe_path(@recipe)
     else
       flash[:alert] = @comment.errors.full_messages.to_sentence
-      redirect_to recipe_comment_path(@recipe,@comment)
+      redirect_to recipe_comment_path(@recipe, @comment)
     end
   end
 
@@ -60,5 +61,4 @@ class CommentsController < ApplicationController
   def set_comment
     @comment = Comment.find(params[:id])
   end
-
 end
