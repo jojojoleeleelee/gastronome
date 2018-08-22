@@ -6,6 +6,8 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   end
 
   def new
+    @user = User.new
+    render layout: false
   end
 
   def create
