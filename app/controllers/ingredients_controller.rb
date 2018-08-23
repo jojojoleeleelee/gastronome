@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :set_user, only: [:create, :edit, :update]
-  before_action :set_ingred, only: [:show]
+  before_action :set_ingredient, only: [:show]
 
   def index
     require_logged_in
@@ -8,23 +8,23 @@ class IngredientsController < ApplicationController
 
   def show
     require_logged_in
-    set_ingred
+    set_ingredient
     respond_to do |f|
       f.html { render :show }
-      f.json { render json: @ingred }
+      f.json { render json: @ingredient }
     end
   end
 
   def new
     require_logged_in
-    @ingred = Ingredient.new
+    @ingredient = Ingredient.new
   end
 
   def create
-    @ingred = Ingredient.new(ingred_params)
-    if @ingred.save
-      @user.ingredients.create!(ingred_params)
-      redirect_to user_ingredients_path(@ingred), notice: "Ingredient was added to your pantry!"
+    @ingredient = Ingredient.new(ingredient_params)
+    if @ingredient.save
+      @user.ingredients.create!(ingredient_params)
+      redirect_to user_ingredients_path(@ingredient), notice: "Ingredient was added to your pantry!"
     else
       flash.now[:notice] = "Oopsies, try that again!"
       render :new
@@ -42,11 +42,11 @@ class IngredientsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
-  def set_ingred
-    @ingred = Ingredient.find(params[:id])
+  def set_ingredient
+    @ingredient = Ingredient.find(params[:id])
   end
 
-  def ingred_params
-    params.require(:ingredient).permit(:name, :quantity)
+  def ingredient_params
+    params.require(:ingredientient).permit(:name, :quantity)
   end
 end

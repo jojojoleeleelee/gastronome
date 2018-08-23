@@ -1,7 +1,7 @@
-<h1><em><%=  @ingred.name.upcase %></em></h1>
+<h1><em><%=  @ingredient.name.upcase %></em></h1>
 
-<h2><%= @ingred.quantity %></h2>
-<h2>Date added: <%= @ingred.created_at.strftime('%m/%d/%Y') %></h2>
+<h2><%= @ingredient.quantity %></h2>
+<h2>Date added: <%= @ingredient.created_at.strftime('%m/%d/%Y') %></h2>
 <br>
 <br>
  <h2><small>Back to</small>
@@ -10,19 +10,19 @@
 <br>
 <div class="vertical-center">
     <div id="container">
- <p data-id="<%= @ingred.id %>" id="cancelIngred"> <%= link_to "DELETE", ingredient_path, method: "delete" %>  </p>
+ <p data-id="<%= @ingredient.id %>" id="cancelIngred"> <%= link_to "DELETE", ingredient_path, method: "delete" %>  </p>
 </div>
 </div>
-<div class="other-ingred">
+<div class="other-ingredient">
   <h3>OTHER INGREDIENTS</h3>
-  <% if @ingred.is_not_first %>
-<div class="previous-ingred" style="text-align:left;">
-<button id="previous-ingred" data-ingred-id="<%= @ingred.id %>" style="float:left;">PREVIOUS</button>
+  <% if @ingredient.is_not_first %>
+<div class="previous-ingredient" style="text-align:left;">
+<button id="previous-ingredient" data-ingredient-id="<%= @ingredient.id %>" style="float:left;">PREVIOUS</button>
 </div>
   <% end %>
-  <% if @ingred.is_not_last %>
-<div class="next-ingred" style="text-align:right;">
-<button id="next-ingred" data-ingred-id="<%= @ingred.id %>" style="float:right;">NEXT</button>
+  <% if @ingredient.is_not_last %>
+<div class="next-ingredient" style="text-align:right;">
+<button id="next-ingredient" data-ingredient-id="<%= @ingredient.id %>" style="float:right;">NEXT</button>
 </div>
   <% end %>
 <br>
