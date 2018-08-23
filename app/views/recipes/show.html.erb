@@ -40,7 +40,19 @@
   <% end %>
   <br>
   <br>
-  <button id="another_recipe" data-ingred-id="<%=@recipe.id%>" class="button is-text">Another Recipe</button>
+<div class="other-recipes">
+  <h3>OTHER RECIPES</h3>
+  <% if @recipe.is_not_first %>
+<div class="previous-recipe" style="text-align:left;">
+<%= link_to "PREVIOUS" %>
+</div>
+  <% end %>
+  <% if @recipe.is_not_last %>
+<div class="next-recipe" style="text-align:right;">
+<%= link_to "NEXT" %>
+</div>
+  <% end %>
+</div>
   <br>
   <br>
   <br>

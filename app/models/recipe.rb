@@ -15,4 +15,12 @@ class Recipe < ActiveRecord::Base
   def all_comments
     self.comments.sort.reverse
   end
+
+  def is_not_last
+    Recipe.exists?(self.id + 1)
+  end
+
+  def is_not_first
+    Recipe.exists?(self.id - 1)
+  end
 end
