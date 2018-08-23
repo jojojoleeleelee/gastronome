@@ -25,10 +25,11 @@
   <br>
 
   <% if !@recipe.comments.empty? %>
+  COMMENTS:
   <div class="commentsList">
   <% @recipe.comments.each do |c| %>
-    <ul>
-      <li><%= c.content %></li>
+    <ul style="text-align: left;">
+<li style="text-align: left;"><%= c.content %></li>
     </ul>
     <% end %>
 <br>

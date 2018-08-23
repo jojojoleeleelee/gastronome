@@ -4,12 +4,12 @@ class CommentsController < ApplicationController
     set_recipe
     @comments = @recipe.all_comments
     respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @comments }
+      format.html { render :index, :layout => false }
+      format.json { render json: @comments, :layout => false }
     end
 
   end
-
+  #
   def create
     set_recipe
     @comment = @recipe.comments.build(comment_params)
@@ -21,31 +21,31 @@ class CommentsController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
-  def edit
-    set_recipe
-    set_comment
-  end
+  # def edit
+  #   set_recipe
+  #   set_comment
+  # end
+  #
+  # def update
+  #   set_recipe
+  #   set_comment
+  #
+  #   if @comment.update(comment_params)
+  #     flash[:notice] = "Edits made"
+  #     redirect_to recipe_path(@recipe)
+  #   else
+  #     flash[:alert] = @comment.errors.full_messages.to_sentence
+  #     redirect_to recipe_comment_path(@recipe, @comment)
+  #   end
+  # end
 
-  def update
-    set_recipe
-    set_comment
-
-    if @comment.update(comment_params)
-      flash[:notice] = "Edits made"
-      redirect_to recipe_path(@recipe)
-    else
-      flash[:alert] = @comment.errors.full_messages.to_sentence
-      redirect_to recipe_comment_path(@recipe, @comment)
-    end
-  end
-
-  def destroy
-    set_recipe
-    set_comment
-    @comment.destroy
-    flash[:notice] = "Comment was deleted"
-		redirect_to recipe_path(@recipe)
-  end
+  # def destroy
+  #   set_recipe
+  #   set_comment
+  #   @comment.destroy
+  #   flash[:notice] = "Comment was deleted"
+	# 	redirect_to recipe_path(@recipe)
+  # end
 
   private
 

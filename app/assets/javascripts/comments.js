@@ -1,11 +1,8 @@
 $(function() {
   $("#new-comment").on("submit", function(e) {
-    e.preventDefault();
-    var urlElement = e.action
     var url = this.action;
     console.log(this)
     const data = $(this).serialize();
-    //debugger
     $.ajax({
       type: "POST",
       url: url,
@@ -19,6 +16,7 @@ $(function() {
         $("#comment-submit").attr("disabled", false)
       }
     });
+    e.preventDefault();
   });
 
   function Comment(id, recipeId, text) {
