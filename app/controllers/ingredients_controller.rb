@@ -8,7 +8,11 @@ class IngredientsController < ApplicationController
 
   def show
     require_logged_in
-
+    set_ingred
+    respond_to do |f|
+      f.html { render :show }
+      f.json { render json: @ingred }
+    end
   end
 
   def new

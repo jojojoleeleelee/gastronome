@@ -13,7 +13,16 @@ class Ingredient < ActiveRecord::Base
   end
 
   def find_recipe(search)
-    # Recipe.where(:title incluedes search)
+    # Recipe.where(:title includes search)
     #http://guides.rubyonrails.org/active_record_querying.html#pure-string-conditions
+  end
+
+
+  def is_not_last
+    Ingredient.exists?(self.id + 1)
+  end
+
+  def is_not_first
+    Ingredient.exists?(self.id - 1)
   end
 end

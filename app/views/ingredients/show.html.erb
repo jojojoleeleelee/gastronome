@@ -13,7 +13,18 @@
  <p data-id="<%= @ingred.id %>" id="cancelIngred"> <%= link_to "DELETE", ingredient_path, method: "delete" %>  </p>
 </div>
 </div>
-
+<div class="other-ingred">
+  <h3>OTHER INGREDIENTS</h3>
+  <% if @ingred.is_not_first %>
+<div class="previous-ingred" style="text-align:left;">
+<button id="previous-ingred" data-ingred-id="<%= @ingred.id %>" style="float:left;">PREVIOUS</button>
+</div>
+  <% end %>
+  <% if @ingred.is_not_last %>
+<div class="next-ingred" style="text-align:right;">
+<button id="next-ingred" data-ingred-id="<%= @ingred.id %>" style="float:right;">NEXT</button>
+</div>
+  <% end %>
 <br>
 <br>
 

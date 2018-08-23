@@ -40,18 +40,7 @@
   <% end %>
   <br>
   <br>
-<div class="other-recipes">
-  <h3>OTHER RECIPES</h3>
-  <% if @recipe.is_not_first %>
-<div class="previous-recipe" style="text-align:left;">
-<button id="previous-recipe" data-recipe-id="<%= @recipe.id %>" style="float:left;">PREVIOUS</button>
-</div>
-  <% end %>
-  <% if @recipe.is_not_last %>
-<div class="next-recipe" style="text-align:right;">
-<button id="next-recipe" data-recipe-id="<%= @recipe.id %>" style="float:right;">NEXT</button>
-</div>
-  <% end %>
+
 </div>
   <br>
   <br>
