@@ -44,12 +44,12 @@
   <h3>OTHER RECIPES</h3>
   <% if @recipe.is_not_first %>
 <div class="previous-recipe" style="text-align:left;">
-<%= link_to "PREVIOUS", class: "btn", :id => "previous-recipe"  %>
+<button id="previous-recipe" data-recipe-id="<%= @recipe.id %>" style="float:left;">PREVIOUS</button>
 </div>
   <% end %>
   <% if @recipe.is_not_last %>
 <div class="next-recipe" style="text-align:right;">
-<%= link_to "NEXT", class: "btn", :id => "next-recipe"%>
+<button id="next-recipe" data-recipe-id="<%= @recipe.id %>" style="float:right;">NEXT</button>
 </div>
   <% end %>
 </div>

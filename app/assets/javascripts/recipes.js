@@ -9,6 +9,7 @@ $(function() {
 function addRecipeNavEvent() {
   $("button#next-recipe").click(function(e) {
     console.log("Load Next Recipe")
+    // debugger
     loadRecipe(this, true)
   })
   $("button#previous-recipe").click(function(e){

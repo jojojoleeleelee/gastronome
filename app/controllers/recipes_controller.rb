@@ -6,6 +6,10 @@ class RecipesController < ApplicationController
 
   def show
     set_recipe
+    respond_to do |f|
+      f.html { render :show }
+      f.json { render json: @recipe }
+    end
     @comment = Comment.new(recipe: @recipe)
   end
 
@@ -114,6 +118,7 @@ class RecipesController < ApplicationController
   private
 
   def set_recipe
+    binding.pry
     @recipe = Recipe.find(params[:id])
   end
 
