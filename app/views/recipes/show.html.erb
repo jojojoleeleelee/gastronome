@@ -23,11 +23,17 @@
   <div class="comments">
     <%= render partial: 'comments/comment_form', locals: {recipe: @recipe, comment: @comment} %>
   <br>
+
   <% if !@recipe.comments.empty? %>
-  <button id="show_comments" data-prayer-id="<%= @recipe.id %>" data-current-user="<%= current_user.username %>">Show Comments (<%= @recipe.comments.count %>)</button>
-<br><br>
-<div id="comments_index">
+  <div class="commentsList">
+  <% @recipe.comments.each do |c| %>
+    <ul>
+      <li><%= c.content %></li>
+    </ul>
+    <% end %>
+<br>
 </div>
+
   <br>
   <br>
   <% end %>
