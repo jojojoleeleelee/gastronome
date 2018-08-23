@@ -27,12 +27,13 @@ function loadIngredient(button, next) {
   }
   let posting = $.get(`/ingredients/${ingredientId}.json`)
   posting.done(function(ingred) {
+      debugger;
     let id = ingred["id"]
     let name = ingred["name"]
     let created_at = ingred["created_at"]
     let notFirst = ingred["notFirst"]
     let notLast = ingred["notLast"]
-  debugger;
+
     ingredient = new Ingredient(id, name, created_at, notFirst, notLast)
     ingredient.display();
     addIngredientNavEvent();
