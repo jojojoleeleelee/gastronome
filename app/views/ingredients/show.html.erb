@@ -16,12 +16,7 @@
 
 <br>
 <br>
-<%= form_for ([@user, @ingred, @comment]), :html => {:id => "new_comment"} do |f| %>
-  <%= f.hidden_field, :user_id, value: current_user.id %>
-  <%= f.hidden_field, :ingred_id, value: @ingred.id %>
-  <%= f.text_field, :text, placeholder: "Comment" %>
-  <%= f.submit "Post", :id => "comment-submit" %>
-<% end %>
+
 <br>
 <br>
 <h2><%= link_to "LOGOUT", logout_path, method: :post %></h2>
