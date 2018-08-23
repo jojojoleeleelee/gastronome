@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
     set_recipe
     @comments = @recipe.all_comments
     respond_to do |format|
-      format.html { render :index, layout: false }
-      format.json { render json: @comments, layout: false }
+      format.html { render :index }
+      format.json { render json: @comments }
     end
 
   end
@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.build(comment_params)
     if @comment.save
       flash[:notice] = "Successfully posted a comment"
-      render 'create.js', :layout => false
     else
       flash[:notice] = @comment.errors.full_messages.to_sentence
     end
