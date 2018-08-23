@@ -10,6 +10,11 @@
  }
 </style>
 <h1>ALL RECIPES</h1>
+<h4><%= link_to "HOME", root_path %></h4>
+
+<br>
+<br>
+<br>
 <% Recipe.all.each do |r| %>
 <hr>
 <h3><%= r.title.upcase %></h3>
