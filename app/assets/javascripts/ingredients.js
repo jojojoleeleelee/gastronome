@@ -54,16 +54,24 @@ class Ingredient {
 
   display() {
     let ingredient = ""
+    let date = (this.created_at).slice(0, 10)
+    let newName = (this.name).toUpperCase()
+
+    ingredient += `<h1><em> ${newName} </em></h1>`
+    // debugger;
+    if (this.quantity !== undefined) {
+    ingredient += `<h2>${this.quantity}</h2>`
+    }
+
+    ingredient += `<h2>Date added: ${date} </h2><br>`
+    ingredient += `<br><br><h2><small>Back to</small><sup><a href="/recipes/index"> PANTRY</a></sup></h2><br><br>`
+
     if (this.notFirst) {
       ingredient += `<button id='previous-ingredient' data-ingredient-id="${this.id}" style='float:right;'>PREVIOUS</button>`
     }
     if (this.notLast) {
       ingredient += `<button id='next-ingredient' data-ingredient-id="${this.id}" style='float:left;'>NEXT</button>`
     }
-    ingredient += `<h1><em>${this.name}.upcase </em></h1>`
-    ingredient += `<h2>${this.quantity}</h2>`
-    ingredient += `<h2>Date added: ${this.created_at}.strftime('%m/%d/%Y') </h2><br>`
-
     $("div#ingredient")[0].innerHTML = ingredient
   }
 }
