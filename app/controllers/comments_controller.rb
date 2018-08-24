@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
       format.html { render :index, :layout => false }
       format.json { render json: @comments, :layout => false }
     end
-
   end
   #
   def create

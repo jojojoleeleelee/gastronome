@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
   def show
     set_recipe
     @comment = Comment.new(recipe: @recipe)
+
   end
 
   def mine

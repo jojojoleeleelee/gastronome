@@ -18,16 +18,17 @@ $(function() {
     });
     e.preventDefault();
   });
+});
 
   function Comment(id, recipeId, text) {
     this.id = id;
-    this.recipeId = recipeId;
+    this.recipe_id = recipeId;
     this.text = text;
   }
+
 
   Comment.prototype.formatText = function() {
     let commentHtml = '';
     commentHtml += `<li>${this.text}</li>`
     return commentHtml;
   }
-});
