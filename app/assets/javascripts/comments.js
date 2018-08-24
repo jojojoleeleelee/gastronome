@@ -29,6 +29,6 @@ $(function() {
 
   Comment.prototype.formatText = function() {
     let commentHtml = '';
-    commentHtml += `<li>${this.text}</li>`
+    commentHtml += `<li style="text-align: left;">${this.text}</li>`
     return commentHtml;
   }
