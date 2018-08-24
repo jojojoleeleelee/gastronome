@@ -25,14 +25,15 @@ function loadIngredient(button, next) {
   } else {
     ingredientId = parseInt(button.dataset.ingredientId) - 1
   }
+  // debugger;
   let posting = $.get(`/ingredients/${ingredientId}.json`)
   posting.done(function(ingred) {
-      debugger;
+      // debugger;
     let id = ingred["id"]
     let name = ingred["name"]
     let created_at = ingred["created_at"]
-    let notFirst = ingred["notFirst"]
-    let notLast = ingred["notLast"]
+    let notFirst = ingred["is_not_first"]
+    let notLast = ingred["is_not_last"]
 
     ingredient = new Ingredient(id, name, created_at, notFirst, notLast)
     ingredient.display();
