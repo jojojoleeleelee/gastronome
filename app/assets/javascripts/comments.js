@@ -19,15 +19,28 @@ $(function() {
   });
 });
 
-  function Comment(id, recipeId, text) {
-    this.id = id;
-    this.recipe_id = recipeId;
-    this.text = text;
-  }
 
-
-  Comment.prototype.formatText = function() {
-    let commentHtml = '';
-    commentHtml += `<li style="text-align: left;">${this.text}</li>`
-    return commentHtml;
+  // function Comment(id, recipeId, text) {
+  //   this.id = id;
+  //   this.recipe_id = recipeId;
+  //   this.text = text;
+  // }
+  //
+  class Comment {
+    constructor(id, recipeId, text) {
+      this.id = id;
+      this.recipe_id = recipeId;
+      this.text = text;
+    }
+    formatText() {
+      let commentHtml = '';
+      commentHtml += `<li style="text-align: left;">${this.text}</li>`
+      return commentHtml;
+    }
   }
+  //
+  // Comment.prototype.formatText = function() {
+  //   let commentHtml = '';
+  //   commentHtml += `<li style="text-align: left;">${this.text}</li>`
+  //   return commentHtml;
+  // }

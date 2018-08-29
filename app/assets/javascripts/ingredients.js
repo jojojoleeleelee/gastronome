@@ -26,6 +26,7 @@ function loadIngredient(button, next) {
     ingredientId = parseInt(button.dataset.ingredientId) - 1
   }
   // debugger;
+  // getJSON
   let posting = $.get(`/ingredients/${ingredientId}.json`)
   posting.done(function(ingred) {
       // debugger;
