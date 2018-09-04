@@ -9,8 +9,9 @@ function alphabetizeComments() {
     let comment = $.get(`/recipes/${recipeId}/comments.json`)
     comment.done(function(comments) {
       // debugger;
-      let sorted = comments.sort(alphabetize)
-      let format = sorted.map(comment => new Comment(comment.id, comment.recipeId, comment.content).formatText())
+      comments.sort(alphabetize)
+      console.log(comments)
+      let format = comments.map(comment => new Comment(comment.id, comment.recipeId, comment.content).formatText())
       $(".commentsList").html(format)
       })
     })
